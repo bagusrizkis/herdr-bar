@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herdr Bar</title>
+<meta name="description" content="Live status of your Herdr coding agents in the macOS menu bar.">
+<link rel="icon" href="https://raw.githubusercontent.com/bagusrizkis/herdr-bar/main/Design/icons/app/HerdrBar-1024.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--ground:#F4F6F9;--surface:#fff;--ink:#1A1E25;--muted:#66707E;--line:#D3D8E0;--accent:#2456D8;--amber:#E8963E;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--ground:#13161B;--surface:#1B1F26;--ink:#E6E9EE;--muted:#8D96A4;--line:#2B313A;--accent:#7A9BFF}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding-inline:20px;padding-block:56px 80px}
+main{max-width:720px;margin:0 auto}
+header{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:28px}
+header img{width:112px;height:112px;display:block}
+h1{font-size:34px;font-weight:600;margin:0;letter-spacing:-.01em}
+.lede{color:var(--muted);margin:6px 0 0;max-width:46ch}
+h2{font-size:18px;font-weight:600;margin:36px 0 10px}
+p{max-width:64ch}
+pre{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font:14px/1.6 "IBM Plex Mono",ui-monospace,monospace;margin:0 0 10px}
+pre b{color:var(--accent);font-weight:500}
+.note{border-left:3px solid var(--amber);padding:6px 14px;color:var(--muted);font-size:14px}
+ul{padding-left:20px;max-width:64ch}li{margin-bottom:6px}
+a{color:var(--accent)}
+footer{margin-top:48px;color:var(--muted);font-size:14px}
+.states{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 0}
+.states figure{margin:0;text-align:center;font-size:12.5px;color:var(--muted)}
+.states svg{width:36px;height:36px;display:block;margin:0 auto 4px;color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <img src="https://raw.githubusercontent.com/bagusrizkis/herdr-bar/main/Design/icons/app/HerdrBar-1024.png" alt="">
+  <div>
+    <h1>Herdr Bar</h1>
+    <p class="lede">Live status of your <a href="https://herdr.dev">Herdr</a> coding agents in the macOS menu bar. Work on something else and glance up.</p>
+  </div>
+</header>
+
+<h2>Install</h2>
+<pre><b>brew</b> trust bagusrizkis/tap
+<b>brew</b> install --cask bagusrizkis/tap/herdr-bar</pre>
+<pre><b>curl</b> -fsSL https://raw.githubusercontent.com/bagusrizkis/herdr-bar/main/install.sh | sh</pre>
+<p class="note">Requires macOS 26 and Herdr 0.9 or newer. Releases are signed with a Developer ID certificate and notarized by Apple. Prefer a manual install? Get the DMG from the <a href="https://github.com/bagusrizkis/herdr-bar/releases/latest">latest release</a>.</p>
+
+<h2>What you get</h2>
+<div class="states">
+  <figure><svg viewBox="0 0 18 18"><path d="M3.92 13.16 A6.2 6.2 0 1 1 14.08 13.16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><g fill="currentColor" opacity=".45"><circle cx="9" cy="7.7" r="1.35"/><circle cx="6.55" cy="11.2" r="1.35"/><circle cx="11.45" cy="11.2" r="1.35"/></g></svg>idle</figure>
+  <figure><svg viewBox="0 0 18 18"><path d="M3.92 13.16 A6.2 6.2 0 1 1 14.08 13.16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><g fill="currentColor"><circle cx="9" cy="7.7" r="1.35"/><circle cx="6.55" cy="11.2" r="1.35"/><circle cx="11.45" cy="11.2" r="1.35"/></g><circle cx="13.8" cy="4.1" r="4.6" fill="var(--ground)"/><circle cx="13.8" cy="4.1" r="3.9" fill="currentColor"/><text x="13.8" y="6.4" font-size="6.5" font-weight="800" text-anchor="middle" fill="var(--ground)" font-family="system-ui">2</text></svg>working</figure>
+  <figure><svg viewBox="0 0 18 18"><path d="M3.92 13.16 A6.2 6.2 0 1 1 14.08 13.16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><g fill="currentColor"><circle cx="9" cy="7.7" r="1.35"/><circle cx="6.55" cy="11.2" r="1.35"/><circle cx="11.45" cy="11.2" r="1.35"/></g><circle cx="13.8" cy="4.1" r="4.6" fill="var(--ground)"/><circle cx="13.8" cy="4.1" r="3.9" fill="currentColor"/><text x="13.8" y="6.5" font-size="6.5" font-weight="800" text-anchor="middle" fill="var(--ground)" font-family="system-ui">!</text></svg>needs input</figure>
+  <figure><svg viewBox="0 0 18 18"><path d="M3.92 13.16 A6.2 6.2 0 1 1 14.08 13.16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.2 2" opacity=".55"/><g fill="currentColor" opacity=".35"><circle cx="9" cy="7.7" r="1.35"/><circle cx="6.55" cy="11.2" r="1.35"/><circle cx="11.45" cy="11.2" r="1.35"/></g></svg>disconnected</figure>
+</div>
+<ul style="margin-top:16px">
+  <li><b>Popover</b> with every agent grouped by space, or as a priority queue: needs input first, then working, done, idle.</li>
+  <li><b>Peek</b> at an agent's last message without switching to the terminal.</li>
+  <li><b>Notifications</b> when an agent needs your input or finishes.</li>
+  <li><b>Multi-session:</b> default and named Herdr sessions, discovered automatically.</li>
+  <li><b>Push, not polling:</b> one streaming subscription to Herdr's socket API.</li>
+</ul>
+
+<h2>Herdr plugin</h2>
+<p>Optional: install Herdr Bar as a Herdr plugin so it launches with the Herdr server and receives agent events directly.</p>
+<pre><b>herdr</b> plugin install bagusrizkis/herdr-bar</pre>
+
+<footer>Open source under the MIT license · <a href="https://github.com/bagusrizkis/herdr-bar">GitHub</a></footer>
+</main>
+</body>
+</html>

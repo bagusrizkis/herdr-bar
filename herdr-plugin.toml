@@ -1,0 +1,25 @@
+# Herdr Bar — Herdr plugin manifest (DRAFT, milestone M4b)
+# Install: herdr plugin install <owner>/herdr-status-bar   |   dev: herdr plugin link /Users/bagus/Project/herdr-status-bar
+id = "herdr-bar"
+name = "Herdr Bar"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Live agent status in the macOS menu bar, with notifications for blocked and done agents."
+platforms = ["macos"]
+
+# Launch the menu bar app when the Herdr server starts (no-op if already running).
+[[startup]]
+command = ["sh", "plugin/launch.sh"]
+
+# Verified 13 Sep 2026 on herdr 0.9.0: fires with HERDR_PLUGIN_EVENT_JSON =
+# {"event":"pane_agent_status_changed","data":{"pane_id","workspace_id","agent_status","agent"}}
+[[events]]
+on = "pane.agent_status_changed"
+command = ["sh", "plugin/notify.sh"]
+
+# Shows up in Herdr's action list; opens the popover / focuses the app.
+[[actions]]
+id = "open"
+title = "Open Herdr Bar"
+contexts = ["global", "pane"]
+command = ["open", "-b", "me.bagus.herdrbar"]

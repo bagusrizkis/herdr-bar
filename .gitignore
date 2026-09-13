@@ -1,0 +1,12 @@
+.build/
+build/
+*.xcodeproj
+.DS_Store
+# AI-generated icon candidates and archived variants (tens of MB); finals live in Design/icons/app and Design/icons/menubar
+Design/icons/raw/
+Design/icons/cut/
+Design/icons/app/v1-glass/
+Design/icons/app/v2-plate/
+Design/icons/app/v2-flat-small-arc/
+Design/icons/app/alt-*.png
+Design/icons/app/HerdrBar-1024-fullbleed.png
